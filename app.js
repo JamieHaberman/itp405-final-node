@@ -11,14 +11,6 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-//get all photos
-app.get('/api/photos', function(request, response) {
-	Photo.fetch({require: true, withRelated: ['area']}).then(function(photos) {
-		response.json({
-			photos: photos
-		});
-	});
-});
 
 
 //get photos by id
