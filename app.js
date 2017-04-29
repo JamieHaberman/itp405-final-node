@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 //get all photos
 app.get('/api/photos', function(request, response) {
-	Photo.fetchAll().then(function(photos) {
+	Photo.fetch({require: true, withRelated: ['area']}).then(function(photos) {
 		response.json({
 			photos: photos
 		});
